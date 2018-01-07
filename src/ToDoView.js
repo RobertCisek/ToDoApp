@@ -22,8 +22,7 @@ class ToDoView extends Component {
                     0
                 ) + 1,
                 content: taskContent,
-                isDone: isDone || false,
-                isImportant: isImportant || false
+
             })
         });
     };
@@ -46,17 +45,6 @@ class ToDoView extends Component {
         })
     };
 
-    markTasksImportant = (taskIds) => {
-        this.setState({
-            tasks: this.state.tasks.map(
-                task => !taskIds.includes(task.id) ?
-                    task : {
-                        ...task,
-                        isImportant: true
-                    }
-            )
-        })
-    };
 
     handleDeleteClick = event => {
         console.log(event.target.dataset.taskId);
@@ -79,16 +67,8 @@ class ToDoView extends Component {
         })
     };
 
-    handleToggleDoneClick = event => {
-        this.handleToggleClick(event, 'isDone')
-    };
-
-    handleToggleImportantClick = event => {
-        this.handleToggleClick(event, 'isImportant')
-    };
 
     render() {
-        // console.table(this.state.tasks);
         return (
             <div>
                 <h1>ToDo</h1>
@@ -100,10 +80,7 @@ class ToDoView extends Component {
                 <TaskList
                     tasks={this.state.tasks}
                     deleteTasks={this.deleteTasks}
-                    markTasksImportant={this.markTasksImportant}
                     handleDeleteClick={this.handleDeleteClick}
-                    handleToggleDoneClick={this.handleToggleDoneClick}
-                    handleToggleImportantClick={this.handleToggleImportantClick}
                 />
             </div>
         )
