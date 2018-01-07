@@ -23,8 +23,10 @@ class Auth extends Component {
                 ? this.props.children
                 : (
                     <div>
-                        <SignInForm/>
+                        <h1 className='welcome'> You can start it before SignUp or SignIn</h1>
+
                         <SignUpForm/>
+                        <SignInForm/>
                         <SignOut/>
                     </div>
                 )

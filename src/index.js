@@ -18,12 +18,13 @@ import ToDoView from './ToDoView'
 import Auth from './Auth'
 import registerServiceWorker from './registerServiceWorker';
 import SignOut from "./Auth/SignOut";
+import AppHeader from "./AppHeader";
 setupFirebase();
 
 ReactDOM.render(
     <Router>
         <div>
-
+        <AppHeader/>
             <Switch>
                 <Auth>
                     <Route exact path="/" component={App}/>
